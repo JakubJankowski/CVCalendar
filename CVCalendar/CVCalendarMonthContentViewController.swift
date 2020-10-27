@@ -356,6 +356,9 @@ extension CVCalendarMonthContentViewController {
             if matchedMonths(convertedDate, dayView.date){
                 presentedMonth.allowScrollToPreviousMonth = false
             }
+            else {
+                presentedMonth.allowScrollToPreviousMonth = true
+            }
         })
     }
 
