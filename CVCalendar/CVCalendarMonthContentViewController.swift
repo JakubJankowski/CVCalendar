@@ -352,12 +352,9 @@ extension CVCalendarMonthContentViewController {
         }
 
         let convertedDate = CVDate(date: disableScrollingBeforeDate, calendar: calendar)
-        presentedMonth.mapDayViews({ dayView in
-            if matchedMonths(convertedDate, dayView.date){
+        presentedMonth.mapDayViewsWithoutWeekdaysOut({ dayView in
+            if matchedDays(convertedDate, dayView.date){
                 presentedMonth.allowScrollToPreviousMonth = false
-            }
-            else {
-                presentedMonth.allowScrollToPreviousMonth = true
             }
         })
     }

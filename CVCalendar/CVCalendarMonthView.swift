@@ -71,6 +71,17 @@ public final class CVCalendarMonthView: UIView {
             }
         }
     }
+    
+    public func mapDayViewsWithoutWeekdaysOut(_ body: (DayView) -> Void) {
+        for weekView in self.weekViews {
+            for dayView in weekView.dayViews {
+                if dayView.isOut {
+                    continue
+                }
+                body(dayView)
+            }
+        }
+    }
 }
 
 // MARK: - Creation and destruction
