@@ -62,13 +62,13 @@ private extension CVCalendarTouchController {
             case .single:
                 if let convertedDate = dayView.date.convertedDate(calendar: calendar),
                     let earliestDate = calendarView.delegate?.earliestSelectableDate?(),
-                    earliestDate.compare(convertedDate) == .orderedDescending {
+                    calendar.compare(earliestDate, to: convertedDate, toGranularity: .day) == .orderedDescending {
                     return
                 }
 
                 if let convertedDate = dayView.date.convertedDate(calendar: calendar),
                     let latestDate = calendarView.delegate?.latestSelectableDate?(),
-                    latestDate.compare(convertedDate) == .orderedAscending {
+                    calendar.compare(latestDate, to: convertedDate, toGranularity: .day) == .orderedAscending {
                     return
                 }
 
